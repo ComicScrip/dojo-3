@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+const initialProductList = [
+  { id: 1, name: 'produit 1', price: 50, quantity: 1 },
+  { id: 2, name: 'produit 2', price: 75, quantity: 2 },
+  { id: 3, name: 'produit 3', price: 20, quantity: 5 }
+];
+
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <h1>Ma commande</h1>
     </div>
   );
 }

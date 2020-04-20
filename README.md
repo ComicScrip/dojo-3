@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Dojo 3
 
-## Available Scripts
+Ce dojo est orienté React. C'est l'occasion parfaite de pratiquer l'affichage de listes, la gestion du state, des formulaires et des évènements ! 
 
-In the project directory, you can run:
+## Lancer l'application
 
-### `npm start`
+```sh
+$ npm install && npm start
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Instructions
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Le but général est de créer une petite application React permettant de gérer un panier de produits.
 
-### `npm test`
+![Screenshot de l'application finale](https://i.imgur.com/TRUaDKk.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Jettez un oeil à `App.css` afin d'utiliser **uniquement** les classes existantes pour styliser l'application *a minima*. 
 
-### `npm run build`
+Conseil : *Comme d'habitude*, gardez bien votre console ouverte pendant le développement, pour ne pas laisser passer de warning ou d'erreur quelconque :)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Etape 1 : Afficher les produits dans un tableau
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Dans `App.js` vous avez quelques exemples de produits dans la constante `initialProductList`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Il faut afficher ces 3 produits dans un tableau qui possèdera les colonnes  : 
+- 'Produit' (`name`)
+- 'Prix unitaire' (`price`)
+- 'Quantité' (`quantity`)
+- 'Prix total' (`price * quantity`)
 
-### `npm run eject`
+### Etape 2 : Afficher le total de la commande
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+En dessous du tableau, affichez le montant total du panier, qui se calcule en faisant la somme des prix totaux (prix * quantité) des items du panier.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Etape 3 : Permettre de changer la quantité d'un produit dans la liste 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Dans le tableau, la colonne 'Quantité' ne devrait contenir que des `<input>` (pensez au bon type d'input, avec des contraintes cohérentes comme on parle d'une quantité) : 
+- Ces inputs doivent êtres **controllés par React**. 
+- Les données des produits devront être gérées dans le `state`.
+- Le prix total de l'item ainsi que le montant total de la commande devraient se mettre à jour automatiquement à l'édition d'une quantité pour un item de la commande.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Etape 4 (BONUS) : Suppression d'un produit de la liste
 
-## Learn More
+Dès que l'on rentre une quantité de 0, une pop-up `window.confirm` apparait pour demander à l'utilisateur "Etes-vous sûr de bien vouloir retirer ce produit de la liste ?" : 
+- S'il confirme, on le fait (sans blague !).
+- Sinon sa saisie de quantité (0) est annulée (rien ne se passe, la quantité n'est pas mise à jour).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Etape 5 (BIG BONUS) : Ajout d'un produit dans la liste
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Creez un formulaire pour ajouter un produit : 
+- Ce dernier contiendra deux champs : 'Nom' et 'Prix', ainsi qu'un bouton 'Ajouter'.
+- Dès que l'on souhaite ajouter un produit, il faut s'assurer que le nom est bien présent et que la quantité a une valeur cohérente  (pensez aux contraintes d'input HTML5 !).
+- Par défaut un nouveau produit dans la liste aura une quantité de 1.
+- Un nouveau produit devra posséder un identifiant (`id`) généré aléatoirement au moment de la création.
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

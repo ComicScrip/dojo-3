@@ -53,6 +53,8 @@ Dès que l'on renseigne une quantité de 0, une pop-up `window.confirm` apparait
 - S'il confirme, on le fait (sans blague !).
 - Sinon sa saisie de quantité (0) est annulée (rien ne se passe, la quantité n'est pas mise à jour).
 
+Hint : https://reactjs.org/docs/handling-events.html (dernière section)
+
 ### Etape 5 : Ajout d'un produit dans la liste
 
 Creez un formulaire pour ajouter un produit : 
